@@ -1,0 +1,33 @@
+.App{
+  /* background-color: #fefefe; */
+  height: 100%;
+  width: 100%;
+  background-color: #f1f1f1;
+background-image: linear-gradient(148deg, #f1f1f1 15%, #D4E6F1 49%);
+min-height: 100vh;
+font-family: 'Roboto', sans-serif;
+}
+
+.products {
+  /* display: grid;
+  grid-template-columns: repeat(3, 1fr);
+   */
+   display: flex;
+   flex-wrap: wrap;
+  
+}
+.card {
+  margin: 1rem auto;
+  border-radius: 6px;
+  background-color: white;
+  padding: 1rem;
+  width: 90%;
+  max-width: 40rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1f2023;
+    color: #000;
+  }
+}

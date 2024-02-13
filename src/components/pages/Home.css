@@ -1,0 +1,16 @@
+.CoverImage {
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+    background-position: 50%;
+    max-height: 500px;
+    opacity: 0.7;
+  }
+  
+  .CoverImage:before {
+    content: "";
+    display: block;
+    padding-bottom: 50%;
+  }
+
+  
