@@ -21,7 +21,10 @@ useEffect(()=>{
 },[dispatch]);
 
 if(loading){
-  return (<h2>Loading</h2>);
+  return (
+  <div className="row text-center p-4 fw-bold">
+    <p>Please wait.. Loading Data.</p>
+  </div>);
 }
 
   return (

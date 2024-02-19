@@ -33,8 +33,13 @@
 /* padded content */
 .padded-boxes .padded {
     padding:.1rem 1rem;
+ 
+   
 }
-
+.padded-boxes .padded >ul >li{
+  display: inline-block;
+  width: 100%;
+}
 /* tablet breakpoint */
 /* @media (min-width:768px) {
     .padded-boxes > * {
@@ -69,10 +74,12 @@
     list-style-type: none;
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    vertical-align: bottom;
   }
 
   .item li{
-    margin: 0 15px;
+    margin: 0 10px;
   }
 
   .itemimg{
@@ -149,7 +156,7 @@
     margin: 0.5rem 0;
   }
   
-  .actions button,
+  /* .actions button,
   .actions button::after,
   .actions button::before {
     background-color: transparent;
@@ -165,4 +172,8 @@
   box-shadow: 0 0 20px #5499C7;
   color: #000;
   border: 0.8px solid #000;
+} */
+
+.ordersummery {
+  height: 100%;
 }

@@ -26,7 +26,10 @@ nav .title{
 nav .title:hover{
     color:#5D6D7E;  
 }
-
+nav .foodcount{
+    font-size: 0.8rem;
+    padding-left: 5px;
+}
 
 
 nav ul{
@@ -101,3 +104,39 @@ nav .menu span{
         margin: 0.2rem 0.2rem;
     }
 }
+
+.icon-wrapper{
+    position:relative;
+    float:left;
+    display: flex;
+}
+
+*.icon-blue {color: #0088cc}
+*.icon-grey {color: grey}
+i {   
+   
+    text-align:center;
+    vertical-align:middle;
+}
+.badge{
+    background: #21618C;
+    width: auto;
+    height: auto;
+    margin: 0;
+    border-radius: 50%;
+    position:absolute;
+    top:-13px;
+    right:-8px;
+    padding:5px;
+    color: #FFF;
+
+}
+.fa-shopping-cart  {
+    color: #2E86C1;
+    transition: 500ms;
+  }
+      
+  .fa-shopping-cart :hover  {
+    color: #73C6B6;
+    transition: 500ms;
+  }

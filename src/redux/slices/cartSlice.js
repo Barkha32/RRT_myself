@@ -1,11 +1,13 @@
 import {createSlice} from "@reduxjs/toolkit";
-
+const initialState=  {
+    items:[
+        
+    ],
+    totalQuantity:0,
+};
 const cartSlice = createSlice({
     name: 'Cart',
-    initialState: {
-        items:[],
-        totalQuantity:0,
-    },
+    initialState,
     reducers:{
         addItem: (state, action) => {
             const newItem = action.payload;
@@ -20,7 +22,8 @@ const cartSlice = createSlice({
                     qty:1,
                     totalprice:newItem.price,
                     name:newItem.name,
-                    image:newItem.image
+                    image:newItem.image,
+                    calories:newItem.calories
                 });
             }
             else{
@@ -40,7 +43,9 @@ const cartSlice = createSlice({
                 existingItem.qty--;
                // existingItem.totalprice = existingItem.totalprice - existingItem.price;
             }
-        }
+        },
+        reset: () =>  initialState
+    
     },
 });
 

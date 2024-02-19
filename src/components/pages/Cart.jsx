@@ -1,69 +1,144 @@
 import { useDispatch, useSelector } from "react-redux";
-import { cartActions } from "../../redux/slices/cartSlice";
+import cartSlice, { cartActions } from "../../redux/slices/cartSlice";
 import "./Cart.css";
-const  Cart = () => {
+import { Link, useNavigate } from "react-router-dom";
+import { Button } from "react-bootstrap";
+const Cart = () => {
+  const cartItems = useSelector((state) => state.cart.items);
+  //const carttotalItems = useSelector(state => state.cart.totalQuantity);
+
+  const total=  cartItems.reduce((a,b) => (a + b.totalprice), 0);
+  const shippingCharges = (!total===0 &&  total < 20 ? 5 : 0);
+  const tax =(total * 5)/100;
+  const checkoutPrice= total+shippingCharges+tax;
   
- const cartItems = useSelector(state => state.cart.items);
- //const carttotalItems = useSelector(state => state.cart.totalQuantity);
+  console.log("total", total);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const cancelOrderHandler = () => { 
+    dispatch(cartActions.reset());
+    navigate("/");};
 
- //const total=  items.cart.reduce((a,b) => (a + b.price), 0);
- const dispatch = useDispatch();
-
-//  const removeItemHandler = () =>{
-//   dispatch(cartActions.removeItemFromCart(item.id));
-//  };
-
- 
+  //  const removeItemHandler = () =>{
+  //   dispatch(cartActions.removeItemFromCart(item.id));
+  //  };
 
   return (
-    
-
-
+    <>
     <div className="padded-boxes">
-    <section >
-        <h3 className="heading">Shopping Cart</h3>
+      <section>
+        <h3 className="heading border-bottom">Shopping Cart</h3>
         <div className="padded">
-        {/* <ul>
+          {/* <ul>
         
           {items.cart.map((item) => (
           <li key={item.id} >{item.name }
           <div>{item.qty}</div></li>
         ))}
       </ul>  */}
-            <ul>
-              {cartItems.map((item) =>
-               <li className="item" key={item.id} >
-                <div >
-                <img className="itemimg" src="../src/images/beef-tacos.jpg" alt="image of food"></img>
-                </div>
-                  <div className="header">
-                 
-                    <h3>{item.name}</h3>
-                    <div className="price">{item.price}${item.totalprice}
-                    <span className="itemprice">(${item.price}/item)</span></div>
+          
+          {cartItems.length === 0 &&
+          <div className="row text-center p-2">
+           <p>Cart is empty.</p> 
+           </div>}
+          <ul>
+            {cartItems.map((item) => (
+              <li className="item " key={item.id}>
+                <div className="row border-bottom  ">
+                  <div className="col-4 mb-2">
+                    <img
+                      className="itemimg"
+                      src="../src/images/beef-tacos.jpg"
+                      alt="image of food"
+                    ></img>
                   </div>
-                 
-                  <div className="details">
-                  <div className="quantity"> X <span>{item.qty}</span></div>
-                  <div className="actions">
-                    <button onClick={() => dispatch(cartActions.removeItemFromCart(item.id))}>-</button>
-                    <button onClick={() => dispatch(cartActions.addItem({
-                       id:item.id,
-                       name:item.name,
-                       price:item.price,
-                       image:item.image
-                    }))}>+</button>
+                  <div className="col-4 mt-3 ">
+                    <div className="row">{item.name}</div>
+                    <div className="row mt-3">${item.price}/item</div>
+                  </div>
+                  <div className="col-4">
+                    {/* <Link variant="outline-primary mx-2">
+                      <span className="icon-wrapper">
+                        <i className="fa fa-trash-alt icon-grey"></i>
+                      </span>
+                    </Link> */}
+                    <div className="row ">
+                      <div className="actions">
+                     
+                        <Button className="btn btn-light"
+                          onClick={() =>
+                            dispatch(cartActions.removeItemFromCart(item.id))
+                          }
+                        >
+                          -
+                        </Button>
+                        <span className="mx-2 mt-2">{item.qty}</span>
+                        <Button className="btn btn-light "
+                          onClick={() =>
+                            dispatch(
+                              cartActions.addItem({
+                                id: item.id,
+                                name: item.name,
+                                price: item.price,
+                                image: item.image,
+                              })
+                            )
+                          }
+                        >
+                          +
+                        </Button>
+                      </div>
                     </div>
+                    <div className="row  "> ${item.totalprice.toFixed(2)}</div>
                   </div>
-               </li> )}
-            </ul>
-
+                </div>
+                <br />
+                {/* <div className="row">
+                  <div className="col-4">
+                  ${item.price}/item
+                  </div>
+                  <div className="col-4">
+                  <div className="quantity">
+                    {" "}
+                    X <span>{item.qty}</span>
+                  </div>
+                  <div className="actions">
+                    <button
+                      onClick={() =>
+                        dispatch(cartActions.removeItemFromCart(item.id))
+                      }
+                    >
+                      -
+                    </button>
+                    <button
+                      onClick={() =>
+                        dispatch(
+                          cartActions.addItem({
+                            id: item.id,
+                            name: item.name,
+                            price: item.price,
+                            image: item.image,
+                          })
+                        )
+                      }
+                    >
+                      +
+                    </button>
+                  </div>
+                  </div>
+                  <div className="col-4">
+                  Total Price: ${item.totalprice}
+                  </div>
+                </div> */}
+              </li>
+            ))}
+          </ul>
         </div>
-    </section>
-    <section >
+      </section>
+      <section className="ordersummery">
         <h3 className="heading">Order Summery</h3>
-        <div className="padded">
-       {/* {items.cart.map((item) => (
+        <div className="padded mb-5">
+          {/* {items.cart.map((item) => (
         
         <li key={item.id}>
          
@@ -75,11 +150,68 @@ const  Cart = () => {
           
         </li>
        ))} */}
-         </div>
-    </section>
-</div>
+       <div className="row px-4 py-2">
+        <div className="col-10">
+        <span className="fw-bold">Subtotal: </span>
+        </div>
+        <div className="col-2">
+        <span className="fw-normal">{total.toFixed(2)}</span>
+        </div>
+       </div>
+       <div className="row px-4 py-1">
+        <div className="col-10">
+        <span className="fw-bold">Total Item: </span>
+        </div>
+        <div className="col-2">
+        <span className="fw-normal">{cartItems.length}</span>
+        </div>
+       </div>
+       <div className="row px-4 py-1">
+        <div className="col-10">
+        <span className="fw-bold">Shipping Charges: </span>
+        </div>
+        <div className="col-2">
+        <span className="fw-normal">{shippingCharges}</span>
+        </div>
+       </div>
+       <div className="row px-4 py-1">
+        <div className="col-10">
+        <span className="fw-bold">Tax: </span>
+        </div>
+        <div className="col-2">
+        <span className="fw-normal">{tax.toFixed(2)}</span>
+        </div>
+       </div>
+       <div className="row px-4 py-2 border-top">
+        <div className="col-10">
+        <span className="fw-bold">Checkout Price: </span>
+        </div>
+        <div className="col-2">
+        <span className="fw-normal">{checkoutPrice.toFixed(2)}</span>
+        </div>
+       </div>
+       <div className="row px-4 py-1 border-top">
+          <Button  variant="primary mx-2" type="button" onClick={() => navigate("/login")}>
+            Checkout
+          </Button>
+        </div>
+        <div className="row px-4 py-1 ">
+          <Button  variant="primary mx-2" type="button" onClick={() => navigate("/")}>
+            Continue Shopping
+          </Button>
+        </div>
+        <div className="row px-4 py-1">
+          <Button  variant="primary mx-2" type="button" onClick={cancelOrderHandler}>
+            Cancel Order
+          </Button>
+        </div>
+      
+        </div>
+      </section>
+    </div>
+   
+    </>
   );
 };
 
 export default Cart;
-

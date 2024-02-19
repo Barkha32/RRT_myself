@@ -13,12 +13,12 @@ export default function Navbar() {
   //const totalItems= items.cart.length;
 const cartQty = useSelector(state =>  state.cart.totalQuantity);
 
-const allFoodCount = useSelector((state) => state.food.foodsdata)
+const allFoodCount = useSelector((state) => state.food.foodsdata);
 
   return (
     <nav>
       <Link to="/" className="title">
-         Foodie Cafe({allFoodCount.length}) 
+         Foodie Cafe<span className="foodcount">({allFoodCount.length})</span> 
       </Link>
       <div
         className="menu"
@@ -32,9 +32,9 @@ const allFoodCount = useSelector((state) => state.food.foodsdata)
       </div>
       <ul className={menuOpen ? "open" : ""}>
        
-        <li>
-          <NavLink>Login</NavLink>
-        </li>
+        {/* <li>
+          <NavLink to="/login">Login</NavLink>
+        </li> */}
        
         <li>
           <NavLink to="/addnewfood">Add Food Item</NavLink>
@@ -45,7 +45,13 @@ const allFoodCount = useSelector((state) => state.food.foodsdata)
         </li> */}
         <li>
           {/* <NavLink to="/cart">Cart({totalItems ? totalItems : 0})</NavLink> */}
-          <NavLink to="/cart">Cart({cartQty})</NavLink>
+          <NavLink to="/cart">
+          <span className="icon-wrapper">
+            <i className="fa fa-shopping-cart  fa-border" ></i>
+              <span className="badge"   >{cartQty}</span>
+          </span>
+          </NavLink>
+          
         </li>
       </ul>
     </nav>

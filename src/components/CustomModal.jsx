@@ -22,25 +22,33 @@ const CustomModal = ({id, showPopUp, setShowPopUp}) => {
 
       
         <Modal.Header >
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title className='col-11 modal-title text-center border-bottom fw-bold'>{singleFood[0].name}</Modal.Title>
           <Button  variant="light" onClick={()=> setShowPopUp(false)}>X</Button>
         </Modal.Header>
         <Modal.Body>
           <Form>
-            <Form.Group className="mb-1" controlId="exampleForm.ControlInput1">
+            <Form.Group className="mb-1 border-bottom" controlId="exampleForm.ControlInput1">
               <div>
-              <Image className='imgModal' src={singleFood[0].image} fluid />
+              <Image className='imgModal' src={`./src/images/${singleFood[0].image}`} fluid />
               </div>
            
-              <Form.Label> {singleFood[0].name}</Form.Label>
-              <Form.Label>{singleFood[0].description}</Form.Label>
-              <Form.Label>$ {singleFood[0].price}</Form.Label>
-             
-            </Form.Group>
+              {/* <Form.Label>Food Title: {singleFood[0].name}</Form.Label> */}
+              <Form.Label> {singleFood[0].description}</Form.Label>
+              
+              <div className='row ' >
+                <div className='col-6'>
+                <Form.Label ><span className='fw-bold'>Price :</span> ${singleFood[0].price}</Form.Label>
+                </div>
+                <div className='col-6'>
+                <Form.Label><span className='fw-bold'>Total Calories :</span> {singleFood[0].calories}</Form.Label>
+               </div>
+              </div>
+             </Form.Group>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" className='mx-2' onClick={()=> setShowPopUp(false)}>
+        <Modal.Footer >
+       
+          <Button variant="secondary" className='mx-2 ' onClick={()=> setShowPopUp(false)}>
             Close
           </Button>
         
