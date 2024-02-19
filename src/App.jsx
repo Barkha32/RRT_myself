@@ -6,6 +6,7 @@ import {Home} from './components/pages/Home';
 import Cart from './components/pages/Cart.jsx';
 import AddNewFood from './components/AddNewFood.jsx';
 import UpdateFoodItem from './components/UpdateFoodItem.jsx';
+import Checkout from './components/Checkout.jsx';
 // import Login from './components/Login.jsx';
 
 
@@ -26,6 +27,7 @@ function App() {
         {/* <Route exact path="/login" element={<Login></Login>} /> */}
         <Route exact path="/addnewfood" element={<AddNewFood></AddNewFood>} />
         <Route path="/updatefood/:id" element={<UpdateFoodItem></UpdateFoodItem>} />
+        <Route path="/checkout" element={<Checkout></Checkout>} />
        
       </Routes>
     </div>

@@ -3,7 +3,11 @@ import cartSlice, { cartActions } from "../../redux/slices/cartSlice";
 import "./Cart.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
+
+
+
 const Cart = () => {
+
   const cartItems = useSelector((state) => state.cart.items);
   //const carttotalItems = useSelector(state => state.cart.totalQuantity);
 
@@ -18,10 +22,6 @@ const Cart = () => {
   const cancelOrderHandler = () => { 
     dispatch(cartActions.reset());
     navigate("/");};
-
-  //  const removeItemHandler = () =>{
-  //   dispatch(cartActions.removeItemFromCart(item.id));
-  //  };
 
   return (
     <>
@@ -93,43 +93,6 @@ const Cart = () => {
                   </div>
                 </div>
                 <br />
-                {/* <div className="row">
-                  <div className="col-4">
-                  ${item.price}/item
-                  </div>
-                  <div className="col-4">
-                  <div className="quantity">
-                    {" "}
-                    X <span>{item.qty}</span>
-                  </div>
-                  <div className="actions">
-                    <button
-                      onClick={() =>
-                        dispatch(cartActions.removeItemFromCart(item.id))
-                      }
-                    >
-                      -
-                    </button>
-                    <button
-                      onClick={() =>
-                        dispatch(
-                          cartActions.addItem({
-                            id: item.id,
-                            name: item.name,
-                            price: item.price,
-                            image: item.image,
-                          })
-                        )
-                      }
-                    >
-                      +
-                    </button>
-                  </div>
-                  </div>
-                  <div className="col-4">
-                  Total Price: ${item.totalprice}
-                  </div>
-                </div> */}
               </li>
             ))}
           </ul>
@@ -190,23 +153,29 @@ const Cart = () => {
         <span className="fw-normal">{checkoutPrice.toFixed(2)}</span>
         </div>
        </div>
-       <div className="row px-4 py-1 border-top">
-          <Button  variant="primary mx-2" type="button" onClick={() => navigate("/login")}>
+      
+         <div className="row px-4 py-1 border-top">
+          <Button  variant="primary mx-2" type="button" onClick={() => navigate("/checkout")}>
             Checkout
           </Button>
         </div>
+        
         <div className="row px-4 py-1 ">
           <Button  variant="primary mx-2" type="button" onClick={() => navigate("/")}>
             Continue Shopping
           </Button>
         </div>
+  
         <div className="row px-4 py-1">
           <Button  variant="primary mx-2" type="button" onClick={cancelOrderHandler}>
-            Cancel Order
+            Empty Cart
           </Button>
         </div>
+        
+
       
         </div>
+       
       </section>
     </div>
    
