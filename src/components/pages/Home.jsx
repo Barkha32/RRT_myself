@@ -7,7 +7,7 @@ import FoodCardItem from "./FoodCardItem";
 import coverImg from "../../images/margherita-pizza.jpg";
 import "./Home.css";
 
-export  function Home() {
+export default function Home() {
   const coverimgStyle={backgroundImage: `url(${coverImg})`};
 
 const dispatch =useDispatch();

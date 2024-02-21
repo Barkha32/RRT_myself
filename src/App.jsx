@@ -1,8 +1,8 @@
 
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Navbar from './components/Navbar';
-import {Home} from './components/pages/Home';
+import Navbar from './components/Navbar.jsx';
+import Home from './components/pages/Home.jsx';
 import Cart from './components/pages/Cart.jsx';
 import AddNewFood from './components/AddNewFood.jsx';
 import UpdateFoodItem from './components/UpdateFoodItem.jsx';
