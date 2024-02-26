@@ -1,11 +1,10 @@
 {
-  "homepage": "https://Barkha32.github.io/RRT_myself",
+  "homepage": " https://github.com/Barkha32/RRT_myself",
   "name": "my_foodapp",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-   
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "dev": "vite",
