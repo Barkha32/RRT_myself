@@ -55,7 +55,7 @@ const FoodCardItem = (fooditem) => {
        <main className="grid">
 
     <article>
-      <Image src={`./src/images/${fooditem.image}`} alt={`Image of ${fooditem.name}`} onClick={() => [setId(fooditem.id), setShowPopUp(true)]}/>
+      <Image src={`./${fooditem.image}`} alt={`Image of ${fooditem.name}`} onClick={() => [setId(fooditem.id), setShowPopUp(true)]}/>
       <div className="text" >
         <h4 className="foodname fw-bold">
             {fooditem.name}

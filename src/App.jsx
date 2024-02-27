@@ -32,7 +32,7 @@ function App() {
     <div className='App'> 
       
       <Navbar></Navbar>
-      <Home ></Home>
+     
       <Routes>
       
          <Route path="/" element={<Home foodsdata={foodsdata} loading={loading}></Home>} /> 
