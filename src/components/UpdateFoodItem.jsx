@@ -59,7 +59,7 @@ const UpdateFoodItem = () => {
     const handleUpdate=(e) =>{
         e.preventDefault();
         dispatch(UpdateFood(updatedData));
-        navigate("/");
+        navigate("/RRT_myself/");
     }
 
     console.log("updatedData:" ,updatedData);
@@ -146,7 +146,7 @@ const UpdateFoodItem = () => {
         </Button>
         <Button variant="outline-primary mx-2"
          type="button"
-         onClick={()=>navigate("/")}>
+         onClick={()=>navigate("/RRT_myself/")}>
           cancel
         </Button>
       </Form.Group>

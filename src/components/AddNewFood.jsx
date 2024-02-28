@@ -42,7 +42,7 @@ const handleSubmit =(e) =>{
   e.preventDefault();
   console.log("fooddata",fooddata);
   dispatch(createUserFood(fooddata));
-  navigate("/");
+  navigate("/RRT_myself/");
 }
 
 const handleImageChange = (event) => {
@@ -126,7 +126,7 @@ setFooddata(fooddata)
           <Button  variant="outline-primary mx-2" type="submit">
             Submit
           </Button>
-          <Button  variant="outline-primary mx-2" type="button" onClick={()=>navigate("/")}>
+          <Button  variant="outline-primary mx-2" type="button" onClick={()=>navigate("/RRT_myself/")}>
             cancel
           </Button>
           </Form.Group>

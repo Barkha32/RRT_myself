@@ -172,7 +172,7 @@ const Cart = () => {
               <Button
                 variant="primary mx-2"
                 type="button"
-                onClick={() => navigate("/checkout")}
+                onClick={() => navigate("/RRT_myself/checkout")}
               >
                 Checkout
               </Button>
@@ -182,7 +182,7 @@ const Cart = () => {
               <Button
                 variant="primary mx-2"
                 type="button"
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/RRT_myself/")}
               >
                 Continue Shopping
               </Button>

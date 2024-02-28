@@ -35,12 +35,12 @@ function App() {
      
       <Routes>
       
-         <Route path="/" element={<Home foodsdata={foodsdata} loading={loading}></Home>} /> 
-        <Route exact path="/cart" element={<Cart></Cart>} />
+         <Route path="/RRT_myself/" element={<Home foodsdata={foodsdata} loading={loading}></Home>} /> 
+        <Route exact path="/RRT_myself/cart" element={<Cart></Cart>} />
         {/* <Route exact path="/login" element={<Login></Login>} /> */}
-        <Route exact path="/addnewfood" element={<AddNewFood></AddNewFood>} />
-        <Route path="/updatefood/:id" element={<UpdateFoodItem></UpdateFoodItem>} />
-        <Route path="/checkout" element={<Checkout></Checkout>} />
+        <Route exact path="/RRT_myself/addnewfood" element={<AddNewFood></AddNewFood>} />
+        <Route path="/RRT_myself/updatefood/:id" element={<UpdateFoodItem></UpdateFoodItem>} />
+        <Route path="/RRT_myself/checkout" element={<Checkout></Checkout>} />
        
       </Routes>
     </div>
