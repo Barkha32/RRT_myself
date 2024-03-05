@@ -9,7 +9,7 @@ nav{
   align-items: center;
   background-color: #FBFCFC;
   box-shadow: 0 -6px 10px 5px rgba(0,0,0,0.5);
-  width: 100vw;
+  width: 100%;
   position: sticky;
   top: 0;
   z-index: 50;
@@ -19,12 +19,19 @@ nav{
 nav .title{
     font-size: 2rem;
     margin: 1rem;
+    margin-left: 0rem;
     font-weight: bold;
     text-decoration: none;
     color: #2980B9;
+   
 }
 nav .title:hover{
     color:#5D6D7E;  
+}
+
+nav .carticon{
+    margin: 1rem;
+  
 }
 nav .foodcount{
     font-size: 0.8rem;
@@ -41,6 +48,7 @@ nav ul{
 
 nav ul li{
     list-style: none;
+    padding-top: 15px;
 }
 nav ul li a {
     display: block;
@@ -109,6 +117,8 @@ nav .menu span{
     position:relative;
     float:left;
     display: flex;
+    margin-top: 10px;
+    padding-left: 15px;
 }
 
 *.icon-blue {color: #0088cc}

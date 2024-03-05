@@ -29,7 +29,7 @@ const CustomModal = ({id, showPopUp, setShowPopUp}) => {
           <Form>
             <Form.Group className="mb-1 border-bottom" controlId="exampleForm.ControlInput1">
               <div>
-              <Image className='imgModal' src={`./src/images/${singleFood[0].image}`} fluid />
+              <Image className='imgModal' src={`./${singleFood[0].image}`} fluid />
               </div>
            
               {/* <Form.Label>Food Title: {singleFood[0].name}</Form.Label> */}

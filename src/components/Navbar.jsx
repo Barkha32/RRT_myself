@@ -17,9 +17,19 @@ const allFoodCount = useSelector((state) => state.food.foodsdata);
 
   return (
     <nav>
+      <div >
+      
+      <NavLink to="/RRT_myself/cart" className="carticon">
+          <span className="icon-wrapper">
+            <i className="fa fa-shopping-cart  fa-border" ></i>
+              <span className="badge"   >{cartQty}</span>
+          </span>
+      </NavLink>
       <Link to="/RRT_myself/" className="title">
          Foodie Cafe<span className="foodcount">({allFoodCount.length})</span> 
       </Link>
+      </div>
+      
       <div
         className="menu"
         onClick={() => {
@@ -30,11 +40,16 @@ const allFoodCount = useSelector((state) => state.food.foodsdata);
         <span></span>
         <span></span>
       </div>
+    
+          {/* <NavLink to="/cart">Cart({totalItems ? totalItems : 0})</NavLink> */}
+          
+          
+      
       <ul className={menuOpen ? "open" : ""}>
        
-        {/* <li>
-          <NavLink to="/login">Login</NavLink>
-        </li> */}
+         <li>
+          <NavLink to="/RRT_myself/login">Login</NavLink>
+        </li> 
        
         <li>
           <NavLink to="/RRT_myself/addnewfood">Add Food Item</NavLink>
@@ -43,16 +58,7 @@ const allFoodCount = useSelector((state) => state.food.foodsdata);
           {/* <NavLink to="/cart">Cart({totalItems ? totalItems : 0})</NavLink> end comment
           <NavLink to="/cart">Cart ({cartQty})</NavLink>
         </li> */}
-        <li>
-          {/* <NavLink to="/cart">Cart({totalItems ? totalItems : 0})</NavLink> */}
-          <NavLink to="/RRT_myself/cart">
-          <span className="icon-wrapper">
-            <i className="fa fa-shopping-cart  fa-border" ></i>
-              <span className="badge"   >{cartQty}</span>
-          </span>
-          </NavLink>
-          
-        </li>
+       
       </ul>
     </nav>
   );

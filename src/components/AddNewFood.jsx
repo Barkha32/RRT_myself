@@ -91,7 +91,7 @@ setFooddata(fooddata)
             <Form.Label>Total Calories:</Form.Label>
             <Form.Control  type="number" name="calories" onChange={getFoodData} required />
           </Form.Group>
-          <Form.Group className="mb-3" >
+          <Form.Group className="mb-3 " >
             <Form.Label>Upload your image:</Form.Label>
             {/* <Form.Control type="text" name="image" onChange={getFoodData} required/>  */}
             <div className="controls">

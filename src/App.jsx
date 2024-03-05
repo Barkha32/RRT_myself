@@ -10,7 +10,8 @@ import Checkout from './components/Checkout.jsx';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { showFood } from './redux/slices/foodSlice.js';
-// import Login from './components/Login.jsx';
+import Login from './components/Login.jsx';
+import Register from './components/Register.jsx';
 
 
 
@@ -37,10 +38,11 @@ function App() {
       
          <Route path="/RRT_myself/" element={<Home foodsdata={foodsdata} loading={loading}></Home>} /> 
         <Route exact path="/RRT_myself/cart" element={<Cart></Cart>} />
-        {/* <Route exact path="/login" element={<Login></Login>} /> */}
+        <Route exact path="/RRT_myself/login" element={<Login></Login>} /> 
         <Route exact path="/RRT_myself/addnewfood" element={<AddNewFood></AddNewFood>} />
         <Route path="/RRT_myself/updatefood/:id" element={<UpdateFoodItem></UpdateFoodItem>} />
         <Route path="/RRT_myself/checkout" element={<Checkout></Checkout>} />
+        <Route path="/RRT_myself/register" element={<Register></Register>} />
        
       </Routes>
     </div>
