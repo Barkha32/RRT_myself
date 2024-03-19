@@ -6,8 +6,8 @@ export default function Login() {
 
   return (
     <div className="row">
-      <div className="col-2"></div>
-      <form className="my-5 p-3 col-8 bg-light">
+      <div className="col-4"></div>
+      <form className="my-5 p-3 col-4 bg-light">
       <label>//WORKING ON IT!</label>
         <div className="form-group ">
           <label>Email address</label>
@@ -35,7 +35,7 @@ export default function Login() {
           </button>
         </div>
       </form>
-      <div className="col-2"></div>
+      <div className="col-4"></div>
     </div>
   );
 }

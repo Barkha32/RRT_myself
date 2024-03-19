@@ -52,88 +52,56 @@ const FoodCardItem = (fooditem) => {
           setShowPopUp={setShowPopUp}
         />
       )}
-       <main className="grid">
-
-    <article>
-      <Image src={`./${fooditem.image}`} alt={`Image of ${fooditem.name}`} onClick={() => [setId(fooditem.id), setShowPopUp(true)]}/>
-      <div className="text" >
-        <h4 className="foodname fw-bold">
-            {fooditem.name}
-        </h4>
-        <p>{fooditem.description}</p>
-        <div className="row">
-        <div className="col-md-6 text-left">
-            <Button variant="outline-primary mx-2" onClick={addToCartHandler}>
-              Add to Cart
-            </Button>
-            
-        </div>
-        <div className="col-md-3  text-end"></div>
-        <div className="col-md-3  text-end">
-        <Link
-            variant="outline-primary mx-2"
-            to={`/updatefood/${fooditem.id}`}
-          >
-            <span className="icon-wrapper">
-              <i className="fa fa-edit icon-grey"></i>
-            </span>
-          </Link>
-          <Link
-            onClick={() => dispatch(deleteFood(fooditem.id))}
-            variant="outline-primary mx-2"
-          >
-            <span className="icon-wrapper">
-              <i className="fa fa-trash-alt icon-grey"></i>
-            </span>
-          </Link>
-          
-          </div>
-        </div>
-
-      </div>
-      
-    </article>
-    </main>
-      {/* <div className="blog-card">
-        <div className="meta">
-          <div className="photo" style={imgStyle}></div>
-        </div>
-        <div className="details">
-          <Link
-            className="linkbtn"
+      <main className="grid">
+        <article>
+          <Image
+            src={`./${fooditem.image}`}
+            alt={`Image of ${fooditem.name}`}
             onClick={() => [setId(fooditem.id), setShowPopUp(true)]}
-          >
-            {fooditem.name}{" "}
-          </Link>
-          <Link
-            variant="outline-primary mx-2"
-            to={`/updatefood/${fooditem.id}`}
-          >
-            <span className="icon-wrapper">
-              <i className="fa fa-edit icon-grey"></i>
-            </span>
-          </Link>
-          <Link
-            onClick={() => dispatch(deleteFood(fooditem.id))}
-            variant="outline-primary mx-2"
-          >
-            <span className="icon-wrapper">
-              <i className="fa fa-trash-alt icon-grey"></i>
-            </span>
-          </Link>
-          <div>Price: ${fooditem.price}</div>
-
-          <div className="center">
-            {/* <button className="button" onClick={() => {dispatch(addItem({id: product.id,name: product.name, price: product.price, image: product.image  }))}}> 
-            <Button variant="outline-primary mx-2" onClick={addToCartHandler}>
-              Add to Cart
-            </Button>
+          />
+          <div className="text">
+            <h4 className="foodname fw-bold">{fooditem.name}</h4>
+            <p>{fooditem.description}</p>
+            <div className="row">
+              <div className="col-md-6 text-left">
+                <Button
+                  variant="outline-primary mx-2"
+                  onClick={addToCartHandler}
+                >
+                  Add to Cart
+                </Button>
+              </div>
+              <div className="col-md-3  text-end"></div>
+              <div className="col-md-3  text-end">
+                <div className="row">
+                  <div className="col-3">
+                    <Link
+                      variant="outline-primary mx-2"
+                      to={`/updatefood/${fooditem.id}`}
+                    >
+                      <span className="icon-wrapper">
+                        <i className="fa fa-edit icon-grey"></i>
+                      </span>
+                    </Link>
+                  </div>
+                  <div className="col-3">
+                    <Link
+                      onClick={() => dispatch(deleteFood(fooditem.id))}
+                      variant="outline-primary mx-2"
+                    >
+                      <span className="icon-wrapper">
+                        <i className="fa fa-trash-alt icon-grey"></i>
+                      </span>
+                    </Link>
+                  </div>
+                  <div className="col-6"></div>
+                </div>
+              </div>
+            </div>
           </div>
-
-          {/* <button  onClick={() => {dispatch(addItem({name: product.name, price: product.price, image: product.image}))}}>Add to Cart</button>  
-          {/* <p>{fooditem.description}</p> 
-        </div>
-      </div> */}
+        </article>
+      </main>
+      
     </li>
   );
 };

@@ -5,8 +5,8 @@ export default function Register() {
     const navigate = useNavigate();
   return (
     <div className="row">
-      <div className="col-2"></div>
-      <form className="my-5 p-3 col-8 bg-light">
+      <div className="col-4"></div>
+      <form className="my-5 p-3 col-4 bg-light">
       <div className="form-group ">
           <label>Name</label>
           <input type="text" className="form-control" required />
@@ -38,7 +38,7 @@ export default function Register() {
           </button>
         </div>
       </form>
-      <div className="col-2"></div>
+      <div className="col-4"></div>
     </div>
   );
 }
